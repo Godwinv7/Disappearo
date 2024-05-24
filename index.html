@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Document</title>
+    <style>
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      li {
+        border: 2px solid #333;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      li:hover {
+        transform: scale(1.05);
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .google-link {
+        color: red;
+        background-color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+      .google-link:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul id="images">
+        <li>
+          <img
+            src="https://images.pexels.com/photos/13282077/pexels-photo-13282077.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="frog"
+            id="frog"
+          />
+        </li>
+        <li>
+          <img
+            src="https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="bridge"
+            id="bridge"
+          />
+        </li>
+        <li>
+          <img
+            src="https://images.pexels.com/photos/161401/fushimi-inari-taisha-shrine-kyoto-japan-temple-161401.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="temple"
+            id="temple"
+          />
+        </li>
+        <li>
+          <img
+            src="https://images.pexels.com/photos/21372078/pexels-photo-21372078/free-photo-of-white-spring-flowers-in-bloom.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            alt="flowers"
+            id="flowers"
+          />
+        </li>
+        <li>
+          <img
+            src="https://images.pexels.com/photos/20836361/pexels-photo-20836361/free-photo-of-a-person-holding-a-cup-of-coffee-in-bed.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+            alt="coffee"
+            id="coffee"
+          />
+        </li>
+        <li>
+          <a class="google-link" href="http://google.com" id="google">Google</a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      /*
+        but the point is that when u click on the li containing the link for google page the whole images will be removed for that there is a event named the tagname instead of using the parentNode let us add some if condiion to target only the img but not the li 
+        if(event.target.tagName===IMG){
+             let removeIt = e.target.parentNode;
+             removeIt.remove();
+        }
+        */
+      document.querySelector("#images").addEventListener("click", function (e) {
+        // console.log(e);
+        console.log(e.target.parentNode);
+        //to remove on the click
+        if (event.target.tagName === "IMG") {
+          let removeIt = e.target.parentNode;
+          removeIt.remove();
+        }
+      });
+    </script>
+  </body>
+</html>
